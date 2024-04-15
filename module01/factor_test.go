@@ -1,10 +1,23 @@
 package module01
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 	"testing"
 )
+
+func intSlicesEqual(got, want []int) error {
+	if len(got) != len(want) {
+		return errors.New("Lengths mismatch.")
+	}
+	for i := range got {
+		if got[i] != want[i] {
+			return errors.New("Values mismatch.")
+		}
+	}
+	return nil
+}
 
 func TestFactor(t *testing.T) {
 	tenPrimes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}

@@ -6,9 +6,12 @@ package module01
 //
 // Eg:
 //
-//   DecToBase(14, 16) => "E"
-//   DecToBase(14, 2) => "1110"
-//
+//	DecToBase(14, 16) => "E"
+//	DecToBase(14, 2) => "1110"
 func DecToBase(dec, base int) string {
-	return ""
+	abc := []rune("0123456789ABCDEF")
+	if dec == 0 {
+		return ""
+	}
+	return DecToBase(dec/base, base) + string(abc[dec%base])
 }

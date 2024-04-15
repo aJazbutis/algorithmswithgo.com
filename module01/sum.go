@@ -2,6 +2,19 @@ package module01
 
 // Sum will sum up all of the numbers passed
 // in and return the result
+/*
 func Sum(numbers []int) int {
-	return 0
+	sum := 0
+	for _, n := range numbers {
+		sum += n
+	}
+	return sum
+}
+*/
+
+func Sum(numbers []int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+	return numbers[0] + Sum(numbers[1:])
 }
